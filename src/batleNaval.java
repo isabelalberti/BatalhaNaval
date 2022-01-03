@@ -10,35 +10,39 @@ public class batleNaval {
 
 		int[][] tabuleiro = new int[8][8];
 
-		int destroier = 2;
-		int submarino = 1;
-		
 		int coluna;
 		int linha;
 		
-		System.out.print(" | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | \n");
+		System.out.print(
+				" ╔════╦════╦════╦════╦════╦════╦════╦════╦═══╗\n" + 
+				" ║    ║ 0  ║ 1  ║ 2  ║ 3  ║ 4  ║ 5  ║ 6  ║ 7 ║  \n" +
+				" ║    ╠════╬════╬════╬════╬════╬════╬════╬═══╣\n"
+				);
 				
 		for (linha = 0; linha < tabuleiro.length; linha++) {
-			System.out.print(linha);
+			System.out.print(" ║ " + " " + linha);
 		for (coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
 			tabuleiro[linha][coluna] = 0;
-			System.out.print("|  " + tabuleiro[linha][coluna]);	
+			System.out.print(" ║ " + tabuleiro[linha][coluna] + " ");	
 				
 			}
 		
-			System.out.print("|");
+			System.out.print("║");
 			System.out.print("\n");
 			
 		}
-			System.out.print("═══════════════════════════");
+			System.out.print(" ╚════╩════╩════╩════╩════╩════╩════╩════╩═══╝");
 		
-		System.out.println("\nEscolha a posição do seu navio");
+	for(int contSub = 0; contSub <= 3; contSub++) {
+		System.out.println("\nEscolha a " + (contSub + 1) + "ª posição do seu Navio Submarino");
+		System.out.println("Linha");
 		linha =leia.nextInt();
+		System.out.println("Coluna");
 		coluna = leia.nextInt();
 		tabuleiro[linha][coluna] = 7;
-		
+	}
 		for (linha = 0; linha < tabuleiro.length; linha++) {
-			System.out.print(linha);
+			System.out.print(" " + linha);
 		for (coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
 			
 			System.out.print("|  " + tabuleiro[linha][coluna]);	
@@ -47,13 +51,13 @@ public class batleNaval {
 
 		}
 		
-		String[][] campoDeBatalha = new String[8][8];
-        System.out.println(
-                "\n------------------------------------------\n" +
-                "    CAMPO DE BATALHA\n"+
-                "  ║ 0 | 1 | 2 | 3 | 4 |\n" +
-                        "═══════════════════════"
-        );
+		//String[][] campoDeBatalha = new String[8][8];
+       // System.out.println(
+              //  "\n------------------------------------------\n" +
+              //  "    CAMPO DE BATALHA\n"+
+              //  "  ║ 0 | 1 | 2 | 3 | 4 |\n" +
+               //         "═══════════════════════"
+       // );
 		
 		
 		
