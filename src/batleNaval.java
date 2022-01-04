@@ -8,7 +8,7 @@ public class batleNaval {
 		Scanner leia = new Scanner(System.in);
 		Random position = new Random();
 
-		int[][] tabuleiro = new int[8][8];
+		String[][] tabuleiro = new String[8][8];
 
 		int coluna;
 		int linha;
@@ -21,7 +21,7 @@ public class batleNaval {
 		for (linha = 0; linha < tabuleiro.length; linha++) {
 			System.out.print(" ║ " + " " + linha);
 			for (coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
-				tabuleiro[linha][coluna] = 0;
+				tabuleiro[linha][coluna] = "0";
 				System.out.print(" ║ " + tabuleiro[linha][coluna] + " ");
 			}
 
@@ -41,7 +41,7 @@ public class batleNaval {
 				System.out.println("Digite corretamente a posição!");
 				contSub--;
 			} else {			
-			tabuleiro[linha][coluna] = 7;
+			tabuleiro[linha][coluna] = "7";
 		}
 			
 	}
@@ -60,9 +60,48 @@ public class batleNaval {
 			System.out.print("║");
 			System.out.print("\n");
 		}
+		
 		System.out.print(" ╚════╩════╩════╩════╩════╩════╩════╩════╩═══╝");
 		
+		Scanner tiro = new Scanner(System.in);
+			
+		for (int conttiro = 0; conttiro <= 4; conttiro++) {
+			System.out.println("\nEscolha a onde quer atirar");
+			System.out.println("Linha");
+			linha = tiro.nextInt();
+			System.out.println("Coluna");
+			coluna = tiro.nextInt();
+			
+			if (coluna >= tabuleiro.length || linha >= tabuleiro.length) {
+				System.out.println("Digite corretamente a posição!");
+				conttiro--;
+			} else {
+				tabuleiro[linha][coluna] = "A";
+			}
+		}
 		
+		for(linha=0; linha < tabuleiro.length; linha++) {
+			for(coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
+				if(coluna == 7 || linha == 7) {
+					tabuleiro[linha][coluna] = "X";
+				}
+			}
+		}
 		
+		System.out.print(
+				  " ╔════╦════╦════╦════╦════╦════╦════╦════╦═══╗\n"
+				+ " ║    ║ 0  ║ 1  ║ 2  ║ 3  ║ 4  ║ 5  ║ 6  ║ 7 ║  \n"
+				+ " ║    ╠════╬════╬════╬════╬════╬════╬════╬═══╣\n");
+
+		for (linha = 0; linha < tabuleiro.length; linha++) {
+			System.out.print(" ║ " + " " + linha);
+			for (coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
+				System.out.print(" ║ " + tabuleiro[linha][coluna] + " ");
+			}
+
+			System.out.print("║");
+			System.out.print("\n");
+		}
+		System.out.print(" ╚════╩════╩════╩════╩════╩════╩════╩════╩═══╝");
 	}
 }
