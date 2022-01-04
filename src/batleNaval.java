@@ -40,13 +40,15 @@ public class batleNaval {
 			if (coluna >= tabuleiro.length || linha >= tabuleiro.length) {
 				System.out.println("Digite corretamente a posição!");
 				contSub--;
+			} 
+			else if(tabuleiro[linha][coluna] == "7") {
+				System.out.println("Esta posição ja foi escolhida, digite novamente");
+				contSub--;
 			} else {			
-			tabuleiro[linha][coluna] = "7";
+				tabuleiro[linha][coluna] = "7";
+			}
 		}
-			
-	}
-
-		System.out.print(
+			System.out.print(
 				  " ╔════╦════╦════╦════╦════╦════╦════╦════╦═══╗\n"
 				+ " ║    ║ 0  ║ 1  ║ 2  ║ 3  ║ 4  ║ 5  ║ 6  ║ 7 ║  \n"
 				+ " ║    ╠════╬════╬════╬════╬════╬════╬════╬═══╣\n");
@@ -82,7 +84,7 @@ public class batleNaval {
 		
 		for(linha=0; linha < tabuleiro.length; linha++) {
 			for(coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
-				if(coluna == 7 || linha == 7) {
+				if(tabuleiro[linha][coluna]== "7") {
 					tabuleiro[linha][coluna] = "X";
 				}
 			}
@@ -90,7 +92,7 @@ public class batleNaval {
 		
 		System.out.print(
 				  " ╔════╦════╦════╦════╦════╦════╦════╦════╦═══╗\n"
-				+ " ║    ║ 0  ║ 1  ║ 2  ║ 3  ║ 4  ║ 5  ║ 6  ║ 7 ║  \n"
+				+ " ║    ║ 0  ║ 1  ║ 2  ║ 3  ║ 4  ║ 5  ║ 6  ║ 7 ║\n"
 				+ " ║    ╠════╬════╬════╬════╬════╬════╬════╬═══╣\n");
 
 		for (linha = 0; linha < tabuleiro.length; linha++) {
