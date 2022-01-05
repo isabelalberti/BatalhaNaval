@@ -40,14 +40,14 @@ public class batleNaval {
 			if (coluna >= tabuleiro.length || linha >= tabuleiro.length) {
 				System.out.println("Digite corretamente a posição!");
 				contSub--;
-			} 
-			else if(tabuleiro[linha][coluna] == "7") {
-				System.out.println("Esta posição ja foi escolhida, digite novamente");
-				contSub--;
-			} else {			
-				tabuleiro[linha][coluna] = "7";
-			}
+			} else if(tabuleiro[linha][coluna] == ">"){			
+			System.out.println("Você já posicionou um navio aqui, escolha outra posição!");
+			contSub--;
+			}else {
+			tabuleiro[linha][coluna] = ">";
 		}
+			
+	}
 			System.out.print(
 				  " ╔════╦════╦════╦════╦════╦════╦════╦════╦═══╗\n"
 				+ " ║    ║ 0  ║ 1  ║ 2  ║ 3  ║ 4  ║ 5  ║ 6  ║ 7 ║  \n"
@@ -66,9 +66,12 @@ public class batleNaval {
 		System.out.print(" ╚════╩════╩════╩════╩════╩════╩════╩════╩═══╝");
 		
 		Scanner tiro = new Scanner(System.in);
-			
-		for (int conttiro = 0; conttiro <= 4; conttiro++) {
-			System.out.println("\nEscolha a onde quer atirar");
+		int contacerto = 0;
+		
+		System.out.println("\n════ CAMPO DE BATALHA ════");
+		
+		for (int conttiro = 0; conttiro <= 5; conttiro++) {
+			System.out.println("\nEscolha onde quer dar seu " + (conttiro + 1) + "º tiro");
 			System.out.println("Linha");
 			linha = tiro.nextInt();
 			System.out.println("Coluna");
@@ -77,16 +80,11 @@ public class batleNaval {
 			if (coluna >= tabuleiro.length || linha >= tabuleiro.length) {
 				System.out.println("Digite corretamente a posição!");
 				conttiro--;
-			} else {
+			} else if(tabuleiro[linha][coluna] == ">"){			
+				tabuleiro[linha][coluna] = "X";
+				contacerto++;
+			}else {
 				tabuleiro[linha][coluna] = "A";
-			}
-		}
-		
-		for(linha=0; linha < tabuleiro.length; linha++) {
-			for(coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
-				if(tabuleiro[linha][coluna]== "7") {
-					tabuleiro[linha][coluna] = "X";
-				}
 			}
 		}
 		
@@ -105,5 +103,6 @@ public class batleNaval {
 			System.out.print("\n");
 		}
 		System.out.print(" ╚════╩════╩════╩════╩════╩════╩════╩════╩═══╝");
+		System.out.println("\n Quantidade de navios afundados: " + contacerto);
 	}
 }
