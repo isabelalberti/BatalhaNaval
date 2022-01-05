@@ -1,7 +1,8 @@
+package com.isabel.singleplayer;
 import java.util.Random;
 import java.util.Scanner;
 
-public class batleNaval {
+public class StructuredNavalBattle {
 
 	public static void main(String[] args) {
 
@@ -41,14 +42,13 @@ public class batleNaval {
 				System.out.println("Digite corretamente a posição!");
 				contSub--;
 			} else if(tabuleiro[linha][coluna] == ">"){			
-			System.out.println("Você já posicionou um navio aqui, escolha outra posição!");
-			contSub--;
+				System.out.println("Você já posicionou um navio aqui, escolha outra posição!");
+				contSub--;
 			}else {
-			tabuleiro[linha][coluna] = ">";
+				tabuleiro[linha][coluna] = ">";	
+			}
 		}
-			
-	}
-			System.out.print(
+		System.out.print(
 				  " ╔════╦════╦════╦════╦════╦════╦════╦════╦═══╗\n"
 				+ " ║    ║ 0  ║ 1  ║ 2  ║ 3  ║ 4  ║ 5  ║ 6  ║ 7 ║  \n"
 				+ " ║    ╠════╬════╬════╬════╬════╬════╬════╬═══╣\n");
@@ -105,4 +105,5 @@ public class batleNaval {
 		System.out.print(" ╚════╩════╩════╩════╩════╩════╩════╩════╩═══╝");
 		System.out.println("\n Quantidade de navios afundados: " + contacerto);
 	}
+	
 }
